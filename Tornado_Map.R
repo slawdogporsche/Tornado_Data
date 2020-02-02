@@ -19,11 +19,12 @@ st_crs(t_data)
 st_bbox(t_data)
 
 ## Visualization ## 
-t_data[1:50,] %>%
+t_data %>%
   ggplot() +
-   geom_point(aes(x=slon, y= slat, color = "blue")) +
-  coord_fixed(1.3) +
-  geom_polygon(data = maps, aes(x = long, y=lat, group = group,  fill = region)) +
+  geom_polygon(data = maps, aes(x = long, y=lat, group = group)) +
+  geom_point(aes(x=slon, y= slat, color = mag))  + 
+  xlim(-130,-60) + 
+  ylim(23,50)
   
   
   
